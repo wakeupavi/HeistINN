@@ -1,0 +1,116 @@
+/* 
+@tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+.Header{
+    
+    display: flex;
+    
+   
+    padding: 2px;
+    background-color: bisque;
+   
+    justify-content: space-between; 
+    
+} 
+
+ 
+        
+.Nav-item>ul{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: space-around;
+    
+} 
+
+.card-list{
+  display: flex;
+  flex-wrap: wrap;
+  margin:auto;
+  padding: 10px ;
+  margin-left: auto;
+ 
+}
+.card{
+  width: 200px;
+  border:1px solid black;
+  padding: 10px;
+  margin:12px;
+}
+.card>img{
+  /* object-fit: cover;
+   */
+   width: 100%;
+
+}
+
+
+.shimmer-card{
+  width: 200px;
+  height: 200px;
+  background-color: rgb(230, 233, 240);
+  border:1px  lightgray ;
+  padding: 10px;
+  margin:12px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.custom-loader {
+  width: 50px;
+  height: 50px;
+  display: grid;
+}
+.custom-loader::before,
+.custom-loader::after {    
+  content:"";
+  grid-area: 1/1;
+  --c: radial-gradient(farthest-side,#766DF4 92%,#0000);
+  background: 
+    var(--c) 50%  0, 
+    var(--c) 50%  100%, 
+    var(--c) 100% 50%, 
+    var(--c) 0    50%;
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  animation: s2 1s infinite;
+}
+.custom-loader::before {
+margin:4px;
+filter:hue-rotate(45deg);
+background-size: 8px 8px;
+animation-timing-function: linear
+}
+
+@keyframes s2{ 
+100%{transform: rotate(.5turn)}
+}
