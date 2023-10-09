@@ -3,23 +3,19 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { RES_LIST_URL } from "../../config";
+import { Link } from "react-router-dom";
+import { filteredRes } from "../utils/helper";
 
 //   https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1119261&lng=79.0878065&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
 
 
-function filteredRes(searchText, restaurant) {
-  const filterRest = restaurant.filter((rest) => {
-    return rest?.info?.name?.toLowerCase().includes(searchText.toLowerCase());
-  });
-  return filterRest;
-}
 
 
 const Body = () => {
   const [searchText, setsearchText] = useState("");
   const [allRestaurant, setAllRestaurant] = useState([]);
   const [filterRestaurant, setFilterRestaurant] = useState([]);
-  // const [loading,setLoading]=useState(true);
+  
 
   useEffect(() => {
     console.log("Use Effect called")
@@ -52,7 +48,7 @@ const Body = () => {
     }
     
     const resData = await checkJsonData(json);
-    // setLoading(false);
+   
     console.log(resData);
     setAllRestaurant(
       resData
@@ -66,7 +62,7 @@ const Body = () => {
 
   if (!allRestaurant) return null;
 
-  console.log("render");
+  console.log("render from body.js");
 
 
   // Conditional Rendering
@@ -97,9 +93,11 @@ const Body = () => {
       <div className="card-list">
         { filterRestaurant.map((restaurant) => {
           return (
-            <div>
-              <RestaurantCard {...restaurant.info} key={restaurant.info.id} />
-            </div>
+          
+              <Link to={"/restaurant/"+restaurant.info.id } key={restaurant.info.id} > 
+               <RestaurantCard {...restaurant.info} />
+               </Link>
+            
           );
         })}
       </div>

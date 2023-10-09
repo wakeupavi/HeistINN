@@ -1,5 +1,6 @@
 import { useState } from "react";
 import logo from "../assets/images.png";
+import { Link } from "react-router-dom";
 
 const Title = () => {
   return (
@@ -18,9 +19,9 @@ const Header = () => {
       <Title />
       <div className="Nav-item">
         <ul className=" flex flex-row">
-          <li className="text-white">Home</li>
-          <li>About</li>
-          <li>ContactUs</li>
+          <Link to={"/"}><li >Home</li></Link>
+          <Link to={"/about"}><li>About</li> </Link>
+          <Link to={"/contact"}><li>ContactUs</li></Link>
           <li>Cart</li>
         </ul>
       </div>
