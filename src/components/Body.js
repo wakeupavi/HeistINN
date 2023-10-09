@@ -5,6 +5,7 @@ import Shimmer from "./Shimmer";
 import { RES_LIST_URL } from "../../config";
 import { Link } from "react-router-dom";
 import { filteredRes } from "../utils/helper";
+import useOnline from "../utils/useOnline";
 
 //   https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1119261&lng=79.0878065&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
 
@@ -49,10 +50,11 @@ const Body = () => {
     
     const resData = await checkJsonData(json);
    
-    console.log(resData);
+    console.log("All restau",resData);
     setAllRestaurant(
       resData
     );
+
     setFilterRestaurant(
       resData
     );
@@ -60,7 +62,13 @@ const Body = () => {
     console.log(filterRestaurant);
   }
 
-  if (!allRestaurant) return null;
+  
+  const Online=useOnline();
+  // console.log("online",isOnline)
+
+  if(!Online)return<h1>You are offline</h1>
+
+  if (!allRestaurant) return<h1>API Changes Refresh it</h1>;
 
   console.log("render from body.js");
 

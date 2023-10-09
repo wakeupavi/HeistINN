@@ -6,6 +6,7 @@
 .Header{
     
     display: flex;
+    position: relative;
     
    
     padding: 2px;
@@ -73,7 +74,14 @@ a{
   color: black;
 }
 
-
+.icon{
+  color: green;
+  translate: 2px 4px;
+  position: absolute,
+  
+  
+  
+}
 
 
 

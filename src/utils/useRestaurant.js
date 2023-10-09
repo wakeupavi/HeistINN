@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 export const useRestaurant = (resId) => {
 
-    
+
   const [category, setCategory] = useState(null);
   const [restaurant, setRestaurant] = useState(null);
 
