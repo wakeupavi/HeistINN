@@ -13,7 +13,7 @@ const RestrauMenu = () => {
     <Shimmer />
   ) : (
     <>
-      <div>
+      <div className="ml-10">
         <div>
           <h1>{restaurant?.name}</h1>
           <div>
@@ -25,18 +25,18 @@ const RestrauMenu = () => {
           <h3>{restaurant.costForTwo}</h3>
         </div>
 
-        <div>
+        <div className="ml-10">
           <h1>Menu</h1>
           <ul>
             {category?.map((cate, index) => {
               return (
                 <li key={index}>
-                  <h1>{cate?.card?.card?.title}</h1>
+                  <h1 className=" text-3xl font-bold">{cate?.card?.card?.title}</h1>
                   {cate?.card?.card?.itemCards.map((item, index) => {
                     return (
                       <div key={index}>
                         <span>
-                          <h2>{item?.card?.info?.name}</h2>
+                          <h2 className="font-bold">{item?.card?.info?.name}</h2>
                         </span>
                         <span>
                           {" "}

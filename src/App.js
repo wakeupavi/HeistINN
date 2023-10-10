@@ -27,6 +27,7 @@ import { Suspense, lazy } from "react";
 
 const Instamart = lazy(() => import("./components/Instamart"));
 // Upon On Demand Laoding -->Upon render-->Suspend Loading
+// never lazy load inside component because it will lazy load after evry cycle/render
 
 const AppLayout = () => (
   <>
