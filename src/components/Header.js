@@ -20,10 +20,10 @@ const Header = () => {
 
   return(
     <>
-    <div className="Header top-0  overflow-x-hidden  h-[70px] flex sticky  justify-between border-solid-black border-2  items-center bg-white shadow-lg ">
+    <div className="Header top-0  overflow-x-hidden w-full  h-[70px] flex sticky  justify-between border-solid-black border-2  items-center bg-white shadow-lg ">
       <div className=" ml-[200px]"><Title /></div>
       <div className="flex  items-center">
-        <ul className=" flex  text-red-600 gap-3 ">
+        <ul className=" flex  text-red-600 text-xl font-bold gap-7 ">
           <Link to={"/"}><li className="" >Home</li></Link>
           <Link to={"/about"}><li>About</li> </Link>
           <Link to={"https://www.linkedin.com/in/avinash-gupta-982355213/"} target="blank"><li>ContactUs</li></Link>

@@ -30,12 +30,12 @@ const Instamart = lazy(() => import("./components/Instamart"));
 // never lazy load inside component because it will lazy load after evry cycle/render
 
 const AppLayout = () => (
-  <>
+  <div className=" scrollbar">
     <Header />
     <Outlet />
     {/* <Body /> */}
     <Footer />
-  </>
+  </div>
 );
 
 const appRouter = createBrowserRouter([

@@ -69,7 +69,7 @@ const Body = () => {
       
        <div className="flex justify-center sticky top-[90]  gap-2">
         <div className="bg-white pr-1 border-[2px] border-solid border-red-900 rounded-full text-black w-[130px]  flex items-center justify-center">
-         <div className="text-red-900 ">
+         <div className="text-red-500 ">
          <FaMapMarkerAlt/>
          </div>
           <h1 className="font-bold">Patna,Bihar</h1>
