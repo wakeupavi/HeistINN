@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { filteredRes } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 import { AiOutlineSearch } from "react-icons/ai";
-import {FaMapMarkerAlt} from "react-icons/fa"
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 //   https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1119261&lng=79.0878065&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
 
@@ -15,6 +15,11 @@ const Body = () => {
   const [searchText, setsearchText] = useState("");
   const [allRestaurant, setAllRestaurant] = useState([]);
   const [filterRestaurant, setFilterRestaurant] = useState([]);
+
+//  function submitSearch() {
+//     const data = filteredRes(searchText, allRestaurant);
+//     setFilterRestaurant(data);
+//   }
 
   useEffect(() => {
     console.log("Use Effect called");
@@ -65,16 +70,15 @@ const Body = () => {
     <Shimmer />
   ) : (
     // <h1>Loading</h1>
-    <div className="mt-10 mr-[100px] ml-[100px] flex flex-col  ">
-      
-       <div className="flex justify-center sticky top-[90]  gap-2">
+    <div className="mt-10 mr-[100px] ml-[100px]  flex flex-col  items-center  ">
+      <div className="flex bg-white p-4 border w-[450px] border-red-300 rounded-xl justify-center z-10 sticky top-[90]  gap-2">
         <div className="bg-white pr-1 border-[2px] border-solid border-red-900 rounded-full text-black w-[130px]  flex items-center justify-center">
-         <div className="text-red-500 ">
-         <FaMapMarkerAlt/>
-         </div>
+          <div className="text-red-500 ">
+            <FaMapMarkerAlt />
+          </div>
           <h1 className="font-bold">Patna,Bihar</h1>
         </div>
-       <div className=" ">
+        <div className=" ">
           <input
             type="text"
             className=" border-[2px] italic appearance-none  border-solid border-red-900 w-90 rounded-full px-3 "
@@ -82,6 +86,9 @@ const Body = () => {
             value={searchText}
             onChange={(e) => {
               setsearchText(e.target.value);
+              const data=filteredRes(searchText,allRestaurant);
+              setFilterRestaurant(data);
+              // onSubmit={submitSearch}
             }}
           ></input>
         </div>
@@ -93,19 +100,18 @@ const Body = () => {
           </div>
           <button
             className="mb-1"
-            onClick={() => {
-              const data = filteredRes(searchText, allRestaurant);
-              setFilterRestaurant(data);
-            }}
+            onClick={()=>
+             { const data=filteredRes(searchText,allRestaurant);
+              setFilterRestaurant(data);}
+            }
           >
             Search
           </button>
         </div>
-       </div>
-      
+      </div>
 
-          <div className="flex flex-col   ">
-           <div className="flex  mt-10 -gap-[10px] justify-center  flex-wrap">
+      <div className="flex flex-col   ">
+        <div className="flex  mt-10 -gap-[10px] justify-center  flex-wrap">
           {filterRestaurant.map((restaurant) => {
             return (
               <Link
@@ -117,10 +123,7 @@ const Body = () => {
             );
           })}
         </div>
-         </div>
-
-
-    
+      </div>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const Section = ({ title, description, isVisible, setIsVisible }) => {
   //   const [isVisible, setIsVisible] = useState(false);
+  
   return (
     <div className="border border-black p-2 m-2">
       <h3 className="font-bold text-xl">{title}</h3>
@@ -27,6 +28,7 @@ const Section = ({ title, description, isVisible, setIsVisible }) => {
 };
 
 const Instamart = () => {
+    console.log("render from instamrt")
   const [sectionconfig, setSectionConfig] = useState({
     showAbout: false,
     showTeam: false,
