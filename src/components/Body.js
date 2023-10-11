@@ -99,7 +99,7 @@ const Body = () => {
             <AiOutlineSearch />
           </div>
           <button
-            className="mb-1"
+            className="mb-1 "
             onClick={()=>
              { const data=filteredRes(searchText,allRestaurant);
               setFilterRestaurant(data);}

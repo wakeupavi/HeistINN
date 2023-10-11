@@ -2,6 +2,10 @@ import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 // import "./index.css"
 
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
@@ -14,6 +18,9 @@ import RestrauMenu from "./components/RestrauMenu";
 // import Profile from "./components/ProfileClass";
 import Profile from "./components/Profile";
 import { Suspense, lazy } from "react";
+import {Provider} from "react-redux"
+import store from "./utils/store";
+import Cart from "./components/Cart";
 // import Shimmer from "./components/Shimmer";
 
 /**
@@ -30,12 +37,19 @@ const Instamart = lazy(() => import("./components/Instamart"));
 // never lazy load inside component because it will lazy load after evry cycle/render
 
 const AppLayout = () => (
-  <div className=" scrollbar">
+  <Provider store={store}>
+    <>
     <Header />
+  
+    
     <Outlet />
+
     {/* <Body /> */}
     <Footer />
-  </div>
+  </>
+<ToastContainer/>
+
+  </Provider>
 );
 
 const appRouter = createBrowserRouter([
@@ -75,6 +89,10 @@ const appRouter = createBrowserRouter([
         path: "/restaurant/:resId",
         element: <RestrauMenu />,
       },
+      {
+        path:"/cart",
+        element:<Cart/>
+      }
     ],
   },
 ]);
